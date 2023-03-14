@@ -10,6 +10,8 @@ public class Romain {
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
+	    this.equipements = new Equipement[2];
+
 	}
 
 	public String getNom() {
@@ -23,6 +25,10 @@ public class Romain {
 	private String prendreParole() {
 		return "Le romain " + nom + " : ";
 	} 
+	public int getForce() {
+	    return force;
+	}
+
 
 //	public void recevoirCoup(int forceCoup) {
 //		force -= forceCoup;
@@ -127,26 +133,21 @@ public class Romain {
 }
 	
 
-   public static void main(String[] args) {
-	   Romain minus = new Romain("Minus",6); 
-	   minus.nom="minus"; 
-	   minus.force=6; 
-	   System.out.println(minus);
-	   System.out.println(minus.prendreParole());
-	   minus.parler("hoho");
-	   minus.recevoirCoup(2);
-	   System.out.println(minus);
-	   System.out.println(Equipement.CASQUE);
-	   System.out.println(Equipement.BOUCLIER);
-	   minus.sEquiper(Equipement.CASQUE);
-	   minus.sEquiper(Equipement.CASQUE);
-	   minus.sEquiper(Equipement.BOUCLIER);
-	   minus.sEquiper(Equipement.CASQUE);
-
-
-
-	
+public static void main(String[] args) {
+	Romain minus = new Romain("Minus", 6); 
+	System.out.println(minus);
+	System.out.println(minus.prendreParole());
+	minus.parler("hoho");
+	minus.recevoirCoup(2);
+	System.out.println(minus);
+	System.out.println(Equipement.CASQUE);
+	System.out.println(Equipement.BOUCLIER);
+	minus.sEquiper(Equipement.CASQUE);
+	minus.sEquiper(Equipement.CASQUE);
+	minus.sEquiper(Equipement.BOUCLIER);
+	minus.sEquiper(Equipement.CASQUE);
 }
+
 	}
 
 
