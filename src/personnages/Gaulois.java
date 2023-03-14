@@ -2,6 +2,8 @@ package personnages;
 
 public class Gaulois {
 	private String nom;
+	private int nbTrophees;
+	private Equipement trophees[] = new Equipement[100];
 	private int force;
 	private int effetPotion = 1;
 
@@ -23,13 +25,13 @@ public class Gaulois {
 	}
 
 	public void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
-		trophees = romain.recevoirCoup((force / 3) * effectPotion);
-		for (int i=0 ; trophees != null && i<trophees.length;i++,nbTrophees++) {
-			this.trophees[nbTrophees]= trophees[i];
+	    System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+	    Equipement[] nouveauxTrophees = romain.recevoirCoup((force / 3) * effetPotion);
+	    for (int i = 0; i < nouveauxTrophees.length && nbTrophees < trophees.length; i++, nbTrophees++) {
+	        trophees[nbTrophees] = nouveauxTrophees[i];
+	    }
 	}
-	}
-	public void boirePortion(int forcePotion) {
+	public void boirePotion(int forcePotion) {
 		effetPotion=+forcePotion;
 		parler("Merci Druide , je sens que ma force est "+forcePotion + "fois decuplee.");
 	}
@@ -45,10 +47,22 @@ public class Gaulois {
 		System.out.println(asterix.prendreParole());
 		asterix.parler("hehe");
 		asterix.boirePotion(6);
-		    
+        System.out.println(asterix.getNom());
+        System.out.println(asterix);
+        System.out.println(asterix.prendreParole());
+        asterix.parler("hehe");
+        asterix.boirePotion(6);
+
+        Romain titus = new Romain("Titus", 6);
+        System.out.println(titus.getNom());
+        System.out.println(titus);
+        titus.parler("J'en ai vu d'autres !");
+
+        }
+		
 	}
-}
-}
+
+
 
 
 
